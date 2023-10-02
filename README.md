@@ -1,11 +1,11 @@
 # IMA543: Redes Neuronales de Aprendizaje Profundo
 
-* **Alejandro Vega Alarcón**
-* **Departamento de Ingeniería Matemáticas y Minor de Análisis de Datos**
+* **Alejandro Vega AlarcÃ³n**
+* **Departamento de IngenierÃ­a MatemÃ¡ticas y Minor de AnÃ¡lisis de Datos**
 * **Segundo semestre 2023**
 
-## Revisión Git
-  - Git s un sistema de control de versiones gratis y de código libre. Fácil de aprender
+## RevisiÃ³n Git
+  - Git s un sistema de control de versiones gratis y de cÃ³digo libre. FÃ¡cil de aprender
   a usar y conveniente para el manejo de proyectos.
 
   - https://git-scm.com/
@@ -25,14 +25,14 @@
     
   ``` git config --global user.email "eser_email"```
   
-  - la contraseña(token) se ajusta mas tarde
+  - la contraseÃ±a(token) se ajusta mas tarde
   ### Para crear un repositorio local
   - crear un nuevo repo en github y guardar el <link>
   - para inicializar git en un directorio:
     
   ```git init```
       
-  - para añadir archivos     
+  - para aÃ±adir archivos     
     
   ```git add .```
      
@@ -68,10 +68,10 @@
     directorio de trabajo:
     ```git reset```
   
-  - como añadir colaboradores a un repo privado
+  - como aÃ±adir colaboradores a un repo privado
 
-## Conexión a Khipu
-* dirección del servidor: 200.13.6.14
+## ConexiÃ³n a Khipu
+* direcciÃ³n del servidor: 200.13.6.14
 * puerto: 10022
   ### Para conectarse al servidor:
   - En la terminal:
@@ -79,25 +79,25 @@
   - Luego la clave del usuario
   ### Bajar un erpositorio en el servidor:
     ```git clone url_repo```
-  - Ojo si el repositorio es público o privado, si es privado
+  - Ojo si el repositorio es pÃºblico o privado, si es privado
     necesitan permiso(creo) e ingresar sus credenciales. 
   - Khipu tiene git instalado. 
   ### Manejo de screen
-  - Screen es una herramienta para manejar seciones en linux, útil 
-    por si la conexión es inestable o se requiere ejecutar multiples comandos.
+  - Screen es una herramienta para manejar seciones en linux, Ãºtil 
+    por si la conexiÃ³n es inestable o se requiere ejecutar multiples comandos.
   - Para abrir screen en el servidor:
       ```screen```
   - Una vez abierto el programa pueden presionar los comandos:
-      * ctrl+a c //para crear una nueva "pesaña"
-      + ctrl+a n,p //para navegar entre las pestaññas disonibles
+      * ctrl+a c //para crear una nueva "pesaÃ±a"
+      + ctrl+a n,p //para navegar entre las pestaÃ±Ã±as disonibles
   ### Checkeo de recursos
   - Para revisar el uso de las CPUs del servidor
       ```htop```
   - Para revisar el uso de las GPUs del servidor
       ```watch -n 1 nvidia-smi```
-      este comando actualiza la informacion cada 1 seg
+      este comando actualiza la informacion cada 1 seg. Ctrl + C para salir
   ### Python
-  - Python no está activado por default en la consola de Khipu
+  - Python no estÃ¡ activado por default en la consola de Khipu
       ```module load conda/3-py39_4.12.0```
       para cargar python.
   - Para crear el entorno del ramo hay que moverse a la carpeta 
@@ -108,12 +108,12 @@
   - Teniendo ya el entorno listo, podemos ejecutar nuestra rutina
       ```python ejemplo.py```
 
-## Uso de múltiples GPUs con Keras
-El entrenamiento con múltiples GPUs nos consiste en dividir el batch
+## Uso de mÃºltiples GPUs con Keras
+El entrenamiento con mÃºltiples GPUs nos consiste en dividir el batch
 de datos de entrenamiento para que las GPUs realizen los calculos en 
-pralelo y obtengan un gradiente de manera democrática para ajustar
+pralelo y obtengan un gradiente de manera democrÃ¡tica para ajustar
 el modelo.
-  ### Cómo usar
+  ### CÃ³mo usar
   - Se define una instancia de *tf.distribute.MirrorredStrategy()*
     en donde se pasan las GPUs en las que se quieren distribuir los
     datos como argumento.
@@ -122,11 +122,11 @@ el modelo.
   - Dentro del bloque definido por strategy.scope() deben ir
       el modelo, la perdida, el compilador, las variables que 
       se quieren distribuir.
-  - Pueden quedar fuera: model.fit(), model.evaluate(), la creación
-      de los input dataset, la definición de los pasos de entrenamiento,
+  - Pueden quedar fuera: model.fit(), model.evaluate(), la creaciÃ³n
+      de los input dataset, la definiciÃ³n de los pasos de entrenamiento,
       guardado y checkpoints del modelo.
-  ### Se podría usar para paralelizar la evaluación del modelo?
-  ### Documentación:
+  ### Se podrÃ­a usar para paralelizar la evaluaciÃ³n del modelo?
+  ### DocumentaciÃ³n:
   * MirroredStrategy : https://www.tensorflow.org/api_docs/python/tf/distribute/MirroredStrategy
   * Strategy#scope : https://www.tensorflow.org/api_docs/python/tf/distribute/Strategy#scope
   * distribute/keras : https://www.tensorflow.org/tutorials/distribute/keras
